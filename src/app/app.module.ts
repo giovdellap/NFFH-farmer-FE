@@ -1,24 +1,37 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './utils/material.module';
 import { ApiService } from './services/api.service';
 import { UserService } from './services/user.service';
 import { HomepageComponent } from './pages/homepage/homepage.component';
+import { LoginpageComponent } from './pages/loginpage/loginpage.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductsComponent } from './pages/products/products.component';
+import { AddComponent } from './pages/products/components/add/add.component';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent
+    HomepageComponent,
+    LoginpageComponent,
+    ProductsComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     ApiService,
