@@ -1,0 +1,28 @@
+.form-container {
+  width: 40%;
+}
+
+.form {
+  margin-left: 20px;
+}
+
+.title {
+  margin: 30px 0px;
+  font-size: 2.5em;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.form-field {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.price-row {
+  display: flex;
+}
+.radio-group {
+  color: var(--primarytext);
+}
+

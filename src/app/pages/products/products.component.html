@@ -1,11 +1,24 @@
 <div class="main-container">
   <div class="title"></div>
   <div class="button-row">
-    <mat-button-toggle-group [formControl]="modeControl" name="mode-selector">
-      <mat-button-toggle value="Add">Add a product</mat-button-toggle>
-      <mat-button-toggle value="Modify">Modify a product</mat-button-toggle>
-      <mat-button-toggle value="Select">Select current products</mat-button-toggle>
-      <mat-button-toggle value="Delete">Delete a product</mat-button-toggle>
+    <mat-button-toggle-group 
+    [formControl]="modeControl" 
+    name="mode-selector" class="but-group">
+      <mat-button-toggle 
+      value="Add" color="primary"
+      >Add a product</mat-button-toggle>
+      <mat-button-toggle 
+      value="Modify" class="radio-button"
+      >Modify a product</mat-button-toggle>
+      <mat-button-toggle 
+      value="Select" class="radio-button"
+      >Select current products</mat-button-toggle>
+      <mat-button-toggle 
+      value="Delete" class="radio-button"
+      >Delete a product</mat-button-toggle>
     </mat-button-toggle-group>
+  </div>
+  <div class="active-section">
+    <app-add *ngIf="mode == 'Add'"></app-add>
   </div>
 </div>

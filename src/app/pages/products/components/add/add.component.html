@@ -1,23 +1,29 @@
 <div class="main-container">
   <div class="title">Add new product:</div>
   <div class="form-container">
-    <form class="example-form">
+    <form class="form">
       <mat-form-field class="form-field">
         <mat-label>Title</mat-label>
-        <input matInput value="">
+        <input matInput 
+        class="title-input" formControlName="title">
       </mat-form-field>
       <mat-form-field class="form-field">
         <mat-label>Description</mat-label>
-        <input matInput value="">
+        <textarea matInput 
+        class="description-input" formControlName="description"></textarea>
       </mat-form-field>
-      <mat-form-field class="form-field">
-        <mat-label>Price</mat-label>
-        <input matInput value="">
-      </mat-form-field>
-      <mat-radio-group>
-        <mat-radio-button value="false">/Kg</mat-radio-button>
-        <mat-radio-button value="true">Each</mat-radio-button>
-      </mat-radio-group>
+      <div class="price-row">
+        <mat-form-field class="form-field">
+          <mat-label>Price</mat-label>
+          <input matInput 
+          class="price-input" formControlName="price">
+        </mat-form-field>
+        <mat-radio-group 
+        formControlName="quantity" color="primary">
+          <mat-radio-button value="false">/Kg</mat-radio-button>
+          <mat-radio-button value="true">Each</mat-radio-button>
+        </mat-radio-group>
+      </div>
     </form>
   </div>
 </div>
