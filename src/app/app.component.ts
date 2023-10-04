@@ -8,14 +8,12 @@ import { UserService } from './services/user.service';
 })
 export class AppComponent {
   title = 'farmer-fe';
-  name: string = "";
   logged = false;
-  
+
   constructor(private user: UserService) {
     this.user.getObservable().subscribe(x => {
       if (x) {
         this.logged = true;
-        this.name = this.user.getName();
       }
     })
   }

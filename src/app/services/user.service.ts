@@ -8,7 +8,7 @@ export class UserService {
 
   logged: boolean = false;
   token: string = "";
-  name: string = "";
+  id: string = "";
 
   subject: BehaviorSubject<boolean> = new BehaviorSubject(this.logged);
 
@@ -18,9 +18,9 @@ export class UserService {
     return this.subject as Observable<boolean>;
   }
 
-  setUser(token : string, name : string) {
+  setUser(token : string, id : string) {
     this.token = token;
-    this.name = name;
+    this.id = id;
     this.logged = true;
     this.subject.next(this.logged);
   }
@@ -29,7 +29,7 @@ export class UserService {
     return this.token;
   }
 
-  getName() {
-    return this.name;
+  getId() {
+    return this.id;
   }
 }
