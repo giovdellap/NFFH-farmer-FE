@@ -63,6 +63,18 @@ export class ApiService {
     }
   }
 
+  modifyProduct(product: ProductRequest) {
+    product.seller = this.user.getId();
+    if(this.serviceMode == 1) {
+      return this.http.post<ProductResponse>(this.url + "/product", product)
+    } else {
+      return new Observable<ProductResponse>(observer => {
+        observer.next(productResponse);
+        observer.complete();
+      })
+    }
+  }
+
   getAllProducts() {
     if(this.serviceMode == 1) {
       return this.http.get<GetProductsResponse>(this.url + "/allproducts")

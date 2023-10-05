@@ -7,12 +7,54 @@
         <mat-card-subtitle>{{card.description}}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-actions align="end">
-        <button mat-button 
+        <button mat-button
         class="card-btn" (click)="modifyProduct(card)">Modify</button>
       </mat-card-actions>
     </mat-card>
   </div>
   <div class="modification-container">
-
+    <div class="error-row"
+    *ngIf="error">Connection error</div>
+    <div class="completed-row"
+    *ngIf="!error && completed">
+      <p>Product successfully modified</p>
+    </div>
+    <div class="form-container" *ngIf="selected">
+      <div class="title">Add new product:</div>
+      <form class="form" [formGroup]="productGroup">
+        <mat-form-field class="form-field">
+          <mat-label>Title</mat-label>
+          <input matInput
+          class="title-input" formControlName="title">
+        </mat-form-field>
+        <mat-form-field class="form-field">
+          <mat-label>Description</mat-label>
+          <textarea matInput
+          class="description-input" formControlName="description"></textarea>
+        </mat-form-field>
+        <div class="price-row">
+          <mat-form-field class="form-field">
+            <mat-label>Price</mat-label>
+            <input matInput
+            class="price-input" formControlName="price">
+          </mat-form-field>
+          <mat-radio-group
+          formControlName="weight" color="primary">
+            <mat-radio-button value="true">/Kg</mat-radio-button>
+            <mat-radio-button value="false">Each</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </form>
+      <div class="image-row">
+        <p class="image-title">Add image</p>
+        <input #imageInput mat-input type="file" accept="image/*"
+        class="image-input" (change)="addImage(imageInput)">
+      </div>
+      <div class="submit-row">
+        <button mat-raised-button
+        class="submit-btn" (click)="sendProduct()"
+        >Save product</button>
+      </div>
+    </div>
   </div>
 </div>
