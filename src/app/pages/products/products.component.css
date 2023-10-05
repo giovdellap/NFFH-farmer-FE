@@ -14,7 +14,7 @@
 
 .radio-button {
   color: var(--accent);
-  background-color: var(--darkprimary);
+  background-color: var(--primarydark);
   font-size: 1.7em;
   font-weight: 600;
 }

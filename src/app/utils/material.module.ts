@@ -1,13 +1,14 @@
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioButton, MatRadioModule } from '@angular/material/radio';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import {MatCardModule} from '@angular/material/card';
     MatFormFieldModule,
     MatButtonToggleModule,
     MatRadioModule,
-    MatCardModule
+    MatCardModule,
+    DragDropModule
   ],
   exports: [
     MatToolbarModule,
@@ -32,7 +34,8 @@ import {MatCardModule} from '@angular/material/card';
     MatButtonToggleModule,
     MatRadioModule,
     MatRadioButton,
-    MatCardModule
+    MatCardModule,
+    DragDropModule
   ]
 })
 export class MaterialModule { }

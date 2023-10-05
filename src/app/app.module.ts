@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductsComponent } from './pages/products/products.component';
 import { AddComponent } from './pages/products/components/add/add.component';
 import { ModifyComponent } from './pages/products/components/modify/modify.component';
+import { SelectComponent } from './pages/products/components/select/select.component';
 
 
 
@@ -24,6 +25,7 @@ import { ModifyComponent } from './pages/products/components/modify/modify.compo
     ProductsComponent,
     AddComponent,
     ModifyComponent,
+    SelectComponent,
     
   ],
   imports: [

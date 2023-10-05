@@ -63,18 +63,18 @@ const productsResponse: GetProductsResponse = {
       availability: false
     },
     {
-      id: "1",
-      title: "Zucchine stupende",
+      id: "2",
+      title: "Papate fantastiche",
       seller: "1",
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/800px-Colosseo_2020.jpg",
       description: "Ao sono stupende",
       price: 2,
       weight: true,
-      availability: false
+      availability: true
     },
     {
-      id: "1",
-      title: "Zucchine stupende",
+      id: "3",
+      title: "Peperoni bellissimi e dolcissimi",
       seller: "1",
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/800px-Colosseo_2020.jpg",
       description: "Ao sono stupende",
@@ -85,4 +85,5 @@ const productsResponse: GetProductsResponse = {
   ]
 }
 
-export { mockUser, imageResponse, product, productResponse, productsResponse };
+export { imageResponse, mockUser, product, productResponse, productsResponse };
+

@@ -14,7 +14,7 @@
 }
 
 .main-description {
-  color: var(--darkprimary);
+  color: var(--primarydark);
   font-size: 1.8em;
   display: flex;
   flex-direction: column;
