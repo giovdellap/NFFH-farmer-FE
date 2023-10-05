@@ -1,21 +1,18 @@
 <div class="main-container">
   <div class="title"></div>
   <div class="button-row">
-    <mat-button-toggle-group 
-    [formControl]="modeControl" 
+    <mat-button-toggle-group
+    [formControl]="modeControl"
     name="mode-selector" class="but-group">
-      <mat-button-toggle 
+      <mat-button-toggle
       value="Add" class="radio-button"
       >Add a product</mat-button-toggle>
-      <mat-button-toggle 
+      <mat-button-toggle
       value="Modify" class="radio-button"
-      >Modify a product</mat-button-toggle>
-      <mat-button-toggle 
+      >Modify/delete a product</mat-button-toggle>
+      <mat-button-toggle
       value="Select" class="radio-button"
       >Select current products</mat-button-toggle>
-      <mat-button-toggle 
-      value="Delete" class="radio-button"
-      >Delete a product</mat-button-toggle>
     </mat-button-toggle-group>
   </div>
   <div class="active-section">

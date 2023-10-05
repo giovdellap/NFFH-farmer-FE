@@ -66,7 +66,7 @@ export class ApiService {
   modifyProduct(product: ProductRequest) {
     product.seller = this.user.getId();
     if(this.serviceMode == 1) {
-      return this.http.post<ProductResponse>(this.url + "/product", product)
+      return this.http.post<ProductResponse>(this.url + "/modifyproduct", product)
     } else {
       return new Observable<ProductResponse>(observer => {
         observer.next(productResponse);
@@ -81,6 +81,17 @@ export class ApiService {
     } else {
       return new Observable<GetProductsResponse>(observer => {
         observer.next(productsResponse);
+        observer.complete();
+      })
+    }
+  }
+
+  deleteProduct(id: string) {
+    if(this.serviceMode == 1) {
+      return this.http.delete<ProductResponse>(this.url + "/product/"+id);
+    } else {
+      return new Observable<ProductResponse>(observer => {
+        observer.next(productResponse);
         observer.complete();
       })
     }

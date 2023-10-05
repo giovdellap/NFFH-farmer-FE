@@ -73,4 +73,10 @@ export class ModifyComponent {
     }
   }
 
+  deleteProduct(item: Product) {
+    this.api.deleteProduct(item.id).subscribe(x => {
+      if(x.success) this.products.splice(this.products.indexOf(item), 1);
+    })
+  }
+
 }
