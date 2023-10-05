@@ -34,7 +34,6 @@ export class AddComponent {
   }
 
   sendProduct() {
-    var accept = true;
     if(this.productGroup.value.title != '' && 
     this.productGroup.value.description != '' &&
     this.productGroup.value.price != 0 &&
@@ -47,7 +46,7 @@ export class AddComponent {
         price: this.productGroup.value.price as number,
         weight: Boolean(this.productGroup.value.weight),
       }).subscribe(res => {
-        this.completed = true;
+        this.completed = res.success;
         this.error = !res.success;
       })
     }

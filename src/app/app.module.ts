@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsComponent } from './pages/products/products.component';
 import { AddComponent } from './pages/products/components/add/add.component';
+import { ModifyComponent } from './pages/products/components/modify/modify.component';
 
 
 
@@ -21,7 +22,9 @@ import { AddComponent } from './pages/products/components/add/add.component';
     HomepageComponent,
     LoginpageComponent,
     ProductsComponent,
-    AddComponent
+    AddComponent,
+    ModifyComponent,
+    
   ],
   imports: [
     BrowserModule,

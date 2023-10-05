@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { ImageResponse, LoginRequest, LoginResponse, ProductRequest, ProductResponse } from '../model/connectionModel';
-import { imageResponse, mockUser, productResponse } from '../utils/mock';
+import { GetProductsResponse, ImageResponse, LoginRequest, LoginResponse, ProductRequest, ProductResponse } from '../model/connectionModel';
+import { imageResponse, mockUser, productResponse, productsResponse } from '../utils/mock';
 import { UserService } from './user.service';
 
 @Injectable({
@@ -58,6 +58,17 @@ export class ApiService {
     } else {
       return new Observable<ProductResponse>(observer => {
         observer.next(productResponse);
+        observer.complete();
+      })
+    }
+  }
+
+  getAllProducts() {
+    if(this.serviceMode == 1) {
+      return this.http.get<GetProductsResponse>(this.url + "/allproducts")
+    } else {
+      return new Observable<GetProductsResponse>(observer => {
+        observer.next(productsResponse);
         observer.complete();
       })
     }

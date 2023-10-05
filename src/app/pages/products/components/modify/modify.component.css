@@ -1,0 +1,34 @@
+.main-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--divider);
+}
+
+.selection-container {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.modification-container {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  margin-top: 20px;
+}
+
+.card-btn {
+  color: var(--accent) !important;
+  background-color: var(--darkprimary) !important;
+}
+
+.section-title {
+  margin: 20px 0px;
+  color: var(--primary);
+  font-size: 2em;
+  font-weight: 600;
+}

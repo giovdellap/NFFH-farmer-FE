@@ -13,7 +13,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   --primarytext: #212121;
   --secondarytext: #757575;
   --divider: #F5F5F5;
-  --background: #EEEEEE;
+  --background: #E0E0E0;
 }
 
 .basic-button {

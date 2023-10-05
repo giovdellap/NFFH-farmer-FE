@@ -1,4 +1,4 @@
-import { ImageResponse, LoginResponse, ProductResponse } from "../model/connectionModel";
+import { GetProductsResponse, ImageResponse, LoginResponse, ProductResponse } from "../model/connectionModel";
 import { Product } from "../model/product";
 
 const mockUser: LoginResponse = {
@@ -29,4 +29,60 @@ const productResponse: ProductResponse = {
   success: true
 }
 
-export { mockUser, imageResponse, product, productResponse };
+const productsResponse: GetProductsResponse = {
+  id: '1',
+  products: [
+    {
+      id: "1",
+      title: "Zucchine stupende",
+      seller: "1",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/800px-Colosseo_2020.jpg",
+      description: "Ao sono stupende",
+      price: 2,
+      weight: true,
+      availability: false
+    },
+    {
+      id: "1",
+      title: "Zucchine stupende",
+      seller: "1",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/800px-Colosseo_2020.jpg",
+      description: "Ao sono stupende",
+      price: 2,
+      weight: true,
+      availability: false
+    },
+    {
+      id: "1",
+      title: "Zucchine stupende",
+      seller: "1",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/800px-Colosseo_2020.jpg",
+      description: "Ao sono stupende",
+      price: 2,
+      weight: true,
+      availability: false
+    },
+    {
+      id: "1",
+      title: "Zucchine stupende",
+      seller: "1",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/800px-Colosseo_2020.jpg",
+      description: "Ao sono stupende",
+      price: 2,
+      weight: true,
+      availability: false
+    },
+    {
+      id: "1",
+      title: "Zucchine stupende",
+      seller: "1",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/800px-Colosseo_2020.jpg",
+      description: "Ao sono stupende",
+      price: 2,
+      weight: true,
+      availability: false
+    }
+  ]
+}
+
+export { mockUser, imageResponse, product, productResponse, productsResponse };

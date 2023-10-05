@@ -2,6 +2,8 @@
  * LOGIN
  */
 
+import { Product } from "./product"
+
 export interface LoginRequest {
     email: string,
     password: string
@@ -31,4 +33,9 @@ export interface ProductResponse {
   id: string,
   title: string,
   success: boolean
+}
+
+export interface GetProductsResponse {
+  id: string,
+  products: Product[]
 }

@@ -1,0 +1,18 @@
+<div class="main-container">
+  <div class="selection-container">
+    <div class="section-title">Select a product to modify</div>
+    <mat-card *ngFor="let card of products" class="card">
+      <mat-card-header>
+        <mat-card-title>{{card.title}}</mat-card-title>
+        <mat-card-subtitle>{{card.description}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-actions align="end">
+        <button mat-button 
+        class="card-btn" (click)="modifyProduct(card)">Modify</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div class="modification-container">
+
+  </div>
+</div>
