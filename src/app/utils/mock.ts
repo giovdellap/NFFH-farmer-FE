@@ -1,4 +1,4 @@
-import { GetProductsResponse, ImageResponse, LoginResponse, ProductResponse } from "../model/connectionModel";
+import { Areas, GetProductsResponse, ImageResponse, LoginResponse, ProductResponse } from "../model/connectionModel";
 import { Product } from "../model/product";
 
 const mockUser: LoginResponse = {
@@ -85,5 +85,9 @@ const productsResponse: GetProductsResponse = {
   ]
 }
 
-export { imageResponse, mockUser, product, productResponse, productsResponse };
+const areasList: Areas = {
+  areas: ['Rome', 'Milan', 'Turin', 'Bologna', 'Bari', 'Firenze', 'Genova', 'Pescara', 'Padova', 'Potenza']
+}
+
+export { areasList, imageResponse, mockUser, product, productResponse, productsResponse };
 

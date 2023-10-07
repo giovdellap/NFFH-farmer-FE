@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
-import { GetProductsResponse, ImageResponse, LoginRequest, LoginResponse, ProductRequest, ProductResponse } from '../model/connectionModel';
-import { imageResponse, mockUser, productResponse, productsResponse } from '../utils/mock';
+import { Areas, GetProductsResponse, ImageResponse, LoginRequest, LoginResponse, ProductRequest, ProductResponse, RegistrationRequest } from '../model/connectionModel';
+import { areasList, imageResponse, mockUser, productResponse, productsResponse } from '../utils/mock';
 import { UserService } from './user.service';
 
 @Injectable({
@@ -33,6 +33,32 @@ export class ApiService {
       this.user.setUser(mockUser.token, mockUser.name)
       return new Observable<LoginResponse>(observer => {
         observer.next(mockUser);
+        observer.complete();
+      })
+    }
+  }
+
+  register(req: RegistrationRequest) {
+    if (this.serviceMode == 1) {
+      return this.http.post<LoginResponse>(this.url+'/signup', req).pipe(
+        tap(x => this.user.setUser(x.token, x.name))
+      )
+    }
+    else {
+      this.user.setUser(mockUser.token, mockUser.name)
+      return new Observable<LoginResponse>(observer => {
+        observer.next(mockUser);
+        observer.complete();
+      })
+    }
+  }
+
+  getLocationsList() {
+    if(this.serviceMode == 1) {
+      return this.http.get<Areas>(this.url+'/areas');
+    } else {
+      return new Observable<Areas>(observer => {
+        observer.next(areasList);
         observer.complete();
       })
     }

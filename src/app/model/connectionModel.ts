@@ -9,6 +9,15 @@ export interface LoginRequest {
     password: string
 }
 
+export interface RegistrationRequest {
+  email: string,
+  password: string,
+  address: string,
+  image: string,
+  username: string,
+  area: string
+}
+
 export interface LoginResponse {
     token: string,
     success: boolean,
@@ -38,4 +47,8 @@ export interface ProductResponse {
 export interface GetProductsResponse {
   id: string,
   products: Product[]
+}
+
+export interface Areas {
+  areas: string[]
 }

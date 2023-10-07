@@ -14,6 +14,7 @@ import { ProductsComponent } from './pages/products/products.component';
 import { AddComponent } from './pages/products/components/add/add.component';
 import { ModifyComponent } from './pages/products/components/modify/modify.component';
 import { SelectComponent } from './pages/products/components/select/select.component';
+import { RegistrationpageComponent } from './pages/registrationpage/registrationpage.component';
 
 
 
@@ -26,6 +27,7 @@ import { SelectComponent } from './pages/products/components/select/select.compo
     AddComponent,
     ModifyComponent,
     SelectComponent,
+    RegistrationpageComponent,
     
   ],
   imports: [
