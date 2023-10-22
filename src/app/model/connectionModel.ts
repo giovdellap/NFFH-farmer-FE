@@ -21,7 +21,7 @@ export interface RegistrationRequest {
 export interface LoginResponse {
     token: string,
     success: boolean,
-    name: string
+    error: string
 }
 
 export interface ImageResponse {
