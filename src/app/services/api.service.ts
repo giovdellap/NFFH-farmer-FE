@@ -143,7 +143,9 @@ export class ApiService {
         "&page=1").pipe(
           tap(x => toReturn = x.products),
           switchMap(x => this.generateProductsRequests(x.total)),
-          switchMap(x => of(toReturn.concat(x)))
+          tap(x => console.log('toReturn', x)),
+          switchMap(x => of(toReturn.concat(x))),
+          tap(x => console.log('FINAL', x))
       );
 
     } else {
@@ -170,6 +172,7 @@ export class ApiService {
     return forkJoin(req).pipe(
       map(page => {
         var toObservable: Product[] = []
+        console.log('partial', toObservable)
         page.forEach(product => toObservable = toObservable.concat(product))
         return toObservable
       })
