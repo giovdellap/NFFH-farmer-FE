@@ -15,7 +15,7 @@ export class ApiService {
    * 1 : API (connected to server)
    * 2: Mock
    */
-  serviceMode = 2;
+  serviceMode = 1;
   url = "http://localhost:8080";
 
   constructor(private http: HttpClient, private user: UserService) { }
