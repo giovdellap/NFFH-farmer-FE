@@ -18,6 +18,6 @@ FROM nginx
 
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/conf.d
-COPY --from=build /app/dist/client-fe /usr/share/nginx/html
+COPY --from=build /app/dist/farmer-fe /usr/share/nginx/html
 
 EXPOSE 80
