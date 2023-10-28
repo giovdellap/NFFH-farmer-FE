@@ -35,7 +35,7 @@ export class RegistrationpageComponent {
 
     this.apiService.sendImage(file).subscribe(x => {
       console.log('im', x)
-      this.image = "http://localhost:8080" + x.url
+      this.image = x.url
     });
   }
 

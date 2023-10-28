@@ -92,7 +92,7 @@ export class ApiService {
         subject.next(req)
       }
       return subject.pipe(
-        mergeMap(x => this.http.post<ImageResponse>("/images/farmer/upload", x))
+        mergeMap(x => this.http.post<ImageResponse>(this.url+"/images/farmer/upload", x))
       )
     } else {
       return new Observable<ImageResponse>(observer => {
