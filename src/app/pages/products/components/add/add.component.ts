@@ -10,7 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 
 export class AddComponent {
-  
+
   productGroup = new FormGroup({
     title: new FormControl(''),
     description: new FormControl(''),
@@ -29,22 +29,24 @@ export class AddComponent {
     const reader = new FileReader();
 
     this.api.sendImage(file).subscribe(x => {
-      if(x.success) this.image = x.url
+      this.image = x.url
     });
   }
 
   sendProduct() {
-    if(this.productGroup.value.title != '' && 
+    console.log(this.user.getEmail(), this.user.getUsername())
+    if(this.productGroup.value.title != '' &&
     this.productGroup.value.description != '' &&
     this.productGroup.value.price != 0 &&
     this.image != '') {
       this.api.addProduct({
         title: this.productGroup.value.title as string,
         description: this.productGroup.value.description as string,
-        seller: this.user.getId(),
+        seller: this.user.getUsername(),
         image: this.image,
         price: this.productGroup.value.price as number,
         weight: Boolean(this.productGroup.value.weight),
+        availability: false
       }).subscribe(res => {
         this.completed = res.success;
         this.error = !res.success;

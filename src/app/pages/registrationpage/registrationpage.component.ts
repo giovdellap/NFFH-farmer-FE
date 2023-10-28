@@ -32,14 +32,21 @@ export class RegistrationpageComponent {
 
   addImage(imageInput: any) {
     const file: File = imageInput.files[0];
-    const reader = new FileReader();
 
     this.apiService.sendImage(file).subscribe(x => {
-      if(x.success) this.image = x.url
+      console.log('im', x)
+      this.image = "http://localhost:8080" + x.url
     });
   }
 
   onSubmit(): void {
+    console.log('email', this.registerForm.value.email)
+    console.log('pw', this.registerForm.value.password)
+    console.log('name', this.registerForm.value.name)
+    console.log('area', this.registerForm.value.area)
+    console.log('address', this.registerForm.value.address)
+    console.log('image', this.image)
+
     if (this.registerForm.value.email !== '' &&
         this.registerForm.value.password !== '' &&
         this.registerForm.value.name !== '' &&
@@ -59,7 +66,7 @@ export class RegistrationpageComponent {
         res => {
           console.log(res)
           this.displayError = !res.success;
-          if (res) {
+          if (res.success) {
             this.router.navigate([""]);
           }
         }

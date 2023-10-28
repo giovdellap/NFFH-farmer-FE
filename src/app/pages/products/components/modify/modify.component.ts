@@ -31,7 +31,7 @@ export class ModifyComponent {
     private api: ApiService,
     private user: UserService
   ) {
-    this.api.getAllProducts().subscribe(res => this.products = res.products);
+    this.api.getAllProducts().subscribe(res => this.products = res);
   }
 
   modifyProduct(item: Product) {
@@ -50,7 +50,7 @@ export class ModifyComponent {
     const reader = new FileReader();
 
     this.api.sendImage(file).subscribe(x => {
-      if(x.success) this.image = x.url
+      this.image = x.url
     });
   }
 
@@ -59,13 +59,16 @@ export class ModifyComponent {
     this.productGroup.value.description != '' &&
     this.productGroup.value.price != 0 &&
     this.image != '') {
-      this.api.modifyProduct({
+      this.api.modifyProduct(
+      {
+        id: this.item.id,
         title: this.productGroup.value.title as string,
         description: this.productGroup.value.description as string,
         seller: this.user.getId(),
         image: this.image,
         price: this.productGroup.value.price as number,
         weight: Boolean(this.productGroup.value.weight),
+        availability: false
       }).subscribe(res => {
         this.completed = res.success;
         this.error = !res.success;

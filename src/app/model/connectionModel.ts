@@ -9,7 +9,7 @@ export interface LoginRequest {
     password: string
 }
 
-export interface RegistrationRequest {
+export interface SignUpRequest {
   email: string,
   password: string,
   address: string,
@@ -21,12 +21,20 @@ export interface RegistrationRequest {
 export interface LoginResponse {
     token: string,
     success: boolean,
-    error: string
+    id: string,
+    username: string,
+}
+
+export interface SignupResponse {
+  token: string,
+  success: boolean,
+  error: string,
+  id: string,
+  username: string
 }
 
 export interface ImageResponse {
   url: string,
-  success: boolean
 }
 
 export interface ProductRequest {
@@ -36,6 +44,7 @@ export interface ProductRequest {
   description: string,
   price: number,
   weight: boolean,
+  availability: boolean
 }
 
 export interface ProductResponse {
@@ -45,10 +54,19 @@ export interface ProductResponse {
 }
 
 export interface GetProductsResponse {
-  id: string,
+  page: number,
+  total: number,
   products: Product[]
 }
 
 export interface Areas {
   areas: string[]
+}
+
+export interface AreasResponse {
+  id: number, areaName: string
+}
+
+export interface ImageRequest {
+  base64_image: string,
 }

@@ -4,12 +4,12 @@ import { Product } from "../model/product";
 const mockUser: LoginResponse = {
   token: "",
   success: true,
-  name: "Li mejo pomodori"
+  id: "1",
+  username: "aaa"
 }
 
 const imageResponse: ImageResponse = {
   url: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/800px-Colosseo_2020.jpg",
-  success: true
 }
 
 const product: Product = {
@@ -30,7 +30,8 @@ const productResponse: ProductResponse = {
 }
 
 const productsResponse: GetProductsResponse = {
-  id: '1',
+  page: 1,
+  total: 1,
   products: [
     {
       id: "1",
