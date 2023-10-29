@@ -31,7 +31,10 @@ export class ModifyComponent {
     private api: ApiService,
     private user: UserService
   ) {
-    this.api.getAllProducts().subscribe(res => this.products = res);
+    console.log('dio cane')
+    this.api.getAllProducts().subscribe(res => {
+      console.log('res' , res)
+      this.products = res});
   }
 
   modifyProduct(item: Product) {
