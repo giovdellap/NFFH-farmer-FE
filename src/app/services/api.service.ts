@@ -142,8 +142,8 @@ export class ApiService {
         this.user.getUsername() +
         "&page=1").pipe(
           tap(x => toReturn = x.products),
-          switchMap(x => this.generateProductsRequests(x.total)),
           tap(x => console.log('toReturn', x)),
+          switchMap(x => this.generateProductsRequests(x.total)),
           switchMap(x => {
             if(x.length === 0) {
               return of(toReturn)
@@ -167,6 +167,7 @@ export class ApiService {
 
   generateProductsRequests(total: number): Observable<Product[]> {
     var req = []
+    if (total === 1) return of([])
     for(let i = 2; i <= total; i++) {
       req.push(
         this.http.get<GetProductsResponse>(this.url +
