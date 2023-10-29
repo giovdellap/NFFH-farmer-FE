@@ -54,20 +54,14 @@ export class SelectComponent {
     var toSend: Product[] = [];
     this.available.forEach(x => x.availability = true)
     this.not_available.forEach(x => x.availability = false)
-    console.log(this.available)
-    console.log(this.not_available)
     this.available.forEach(x => {
-      console.log(this.modified)
       var found = this.modified.find(item => item === x.id);
-      console.log(found)
       if(found != undefined) toSend.push(x);
     });
     this.not_available.forEach(x => {
       var found = this.modified.find(item => item === x.id);
-      console.log(found)
       if(found != undefined) toSend.push(x);
     });
-    console.log(toSend)
     toSend.forEach(x => this.api.modifyProduct(x).subscribe(res => {if(!res.success) this.error = true}));
     this.completed = true;
 
