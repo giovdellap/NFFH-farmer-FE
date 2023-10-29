@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+import { revertString } from 'src/app/utils/stringmakeup';
 
 @Component({
   selector: 'app-registrationpage',
@@ -53,11 +54,12 @@ export class RegistrationpageComponent {
         this.registerForm.value.area !== '' &&
         this.registerForm.value.address !== '' &&
         this.image !== '') {
+          var temp = revertString(this.registerForm.value.name || "")
       this.apiService.register(
         {
           email: <string>this.registerForm.value.email,
           password: <string>this.registerForm.value.password,
-          username: <string>this.registerForm.value.name,
+          username: <string>temp,
           area: <string>this.registerForm.value.area,
           address: <string>this.registerForm.value.address,
           image: this.image

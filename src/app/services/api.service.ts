@@ -134,21 +134,25 @@ export class ApiService {
 
   getAllProducts(): Observable<Product[]> {
     if(this.serviceMode == 1) {
-      console.log('uno')
+
       var toReturn: Product[] = []
 
       return this.http.get<GetProductsResponse>(this.url +
         "/product/findbyseller?seller=" +
         this.user.getUsername() +
         "&page=1").pipe(
-          tap(x => console.log('x', x)),
           tap(x => toReturn = x.products),
           switchMap(x => this.generateProductsRequests(x.total)),
           tap(x => console.log('toReturn', x)),
           switchMap(x => {
+            if(x.length === 0) {
+              return of(toReturn)
+            } else {
               var res: Product[] = []
               res = toReturn.concat(x)
               return of(res)
+            }
+            
             }),
           tap(x => console.log('FINAL', x))
       );
@@ -163,7 +167,6 @@ export class ApiService {
 
   generateProductsRequests(total: number): Observable<Product[]> {
     var req = []
-    if(total<2) return of([])
     for(let i = 2; i <= total; i++) {
       req.push(
         this.http.get<GetProductsResponse>(this.url +
@@ -174,10 +177,10 @@ export class ApiService {
           )
       );
     }
-    
-    var toObservable: Product[] = []
+
     return forkJoin(req).pipe(
       map(page => {
+        var toObservable: Product[] = []
         console.log('partial', toObservable)
         page.forEach(product => product.forEach)
         return toObservable
