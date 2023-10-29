@@ -144,7 +144,16 @@ export class ApiService {
           tap(x => toReturn = x.products),
           switchMap(x => this.generateProductsRequests(x.total)),
           tap(x => console.log('toReturn', x)),
-          switchMap(x => of(toReturn.concat(x))),
+          switchMap(x => {
+            if(x.length === 0) {
+              return of(toReturn)
+            } else {
+              var res: Product[] = []
+              res = toReturn.concat(x)
+              return of(res)
+            }
+            
+            }),
           tap(x => console.log('FINAL', x))
       );
 
